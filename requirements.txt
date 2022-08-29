@@ -1,0 +1,10 @@
+Django
+djangorestframework
+drf_yasg
+mysqlclient==2.1.1
+pymysql==1.0.2
+bcrypt
+autopep8
+pylint
+django-filter
+djangorestframework-simplejwt

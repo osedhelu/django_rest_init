@@ -1,0 +1,25 @@
+version: "3"
+services:
+  backend_shop:
+    container_name: backend_shop
+    env_file:
+      - .env
+    build:
+      args:
+        user: debian
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    command: python3 manage.py runserver 0.0.0.0:8000
+    restart: always
+    ports:
+      - "8002:8000"
+    volumes:
+      - .:/app/
+      - ~/db/mysqld/:/run/mysqld
+    networks:
+      - dbmysql
+networks:
+  dbmysql:
+    external:
+      name: mysql_networks
